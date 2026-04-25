@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" width="260" height="56">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&amp;family=DM+Serif+Display&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Mark -->
+  <g transform="translate(0, 4) scale(0.75)">
+    <rect x="0" y="22" width="64" height="6" rx="3" fill="#404449"/>
+    <rect x="0" y="36" width="64" height="6" rx="3" fill="#404449"/>
+    <line x1="14" y1="52" x2="50" y2="12" stroke="#C8C4BC" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="50" cy="12" r="4.5" fill="#C07838"/>
+    <circle cx="14" cy="52" r="4" fill="none" stroke="#C8C4BC" stroke-width="1.5"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="68" y1="5" x2="68" y2="51" stroke="#4A5563" stroke-width="1"/>
+
+  <!-- Wordmark -->
+  <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#C8C4BC">Portage</text>
+  <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#6B7580">WORKS</text>
+</svg>

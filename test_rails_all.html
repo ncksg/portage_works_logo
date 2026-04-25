@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rail Opacity — All Palettes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 2rem; font-family: monospace; color: #666; }
+    h1 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+    .test { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .test .label { font-size: 10px; letter-spacing: 0.12em; color: #666; }
+    .test .sublabel { font-size: 9px; color: #444; }
+    .box { width: 180px; height: 180px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1>V1 + 0.14 Rails — All Palettes</h1>
+
+  <div class="row">
+    <!-- A: Charcoal -->
+    <div class="test">
+      <span class="label">A — CHARCOAL</span>
+      <div class="box" style="background:#2E2E2A;">
+        <svg viewBox="0 0 64 64" width="140" height="140">
+          <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- B: Light -->
+    <div class="test">
+      <span class="label">B — LIGHT</span>
+      <div class="box" style="background:#F0ECE4;">
+        <svg viewBox="0 0 64 64" width="140" height="140">
+          <rect x="0" y="22" width="64" height="6" rx="3" fill="#2E2E2A" fill-opacity="0.10"/>
+          <rect x="0" y="36" width="64" height="6" rx="3" fill="#2E2E2A" fill-opacity="0.10"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#2E2E2A" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#2E2E2A" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- C: Forest -->
+    <div class="test">
+      <span class="label">C — FOREST</span>
+      <div class="box" style="background:#1E2E1C;">
+        <svg viewBox="0 0 64 64" width="140" height="140">
+          <rect x="0" y="22" width="64" height="6" rx="3" fill="#D4CAAF" fill-opacity="0.14"/>
+          <rect x="0" y="36" width="64" height="6" rx="3" fill="#D4CAAF" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#D4CAAF" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C8922A"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#D4CAAF" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- D: Slate -->
+    <div class="test">
+      <span class="label">D — RIVER STONE</span>
+      <div class="box" style="background:#2A2F36;">
+        <svg viewBox="0 0 64 64" width="140" height="140">
+          <rect x="0" y="22" width="64" height="6" rx="3" fill="#C8C4BC" fill-opacity="0.14"/>
+          <rect x="0" y="36" width="64" height="6" rx="3" fill="#C8C4BC" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#C8C4BC" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="12" r="4.5" fill="#B5654A"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#C8C4BC" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

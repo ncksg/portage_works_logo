@@ -1,0 +1,10 @@
+{
+  "name": "portage-works-logo",
+  "private": true,
+  "scripts": {
+    "dev": "browser-sync start --server --files '*.html, *.svg, *.css' --no-notify --port 3456 --listen 0.0.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  }
+}

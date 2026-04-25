@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Origin Dot Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; display: flex; flex-wrap: wrap; gap: 2rem; padding: 2rem; justify-content: center; font-family: monospace; color: #666; }
+    .test { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .test span { font-size: 11px; letter-spacing: 0.1em; }
+    .box { width: 200px; height: 200px; background: #2E2E2A; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <!-- Original (barely visible) -->
+  <div class="test">
+    <span>ORIGINAL</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="3" fill="#E8E2D4" fill-opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- V1: Open ring -->
+  <div class="test">
+    <span>V1 — OPEN RING</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- V2: Solid brighter -->
+  <div class="test">
+    <span>V2 — SOLID BRIGHTER</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="3.5" fill="#E8E2D4" fill-opacity="0.55"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- V3: Ring + center -->
+  <div class="test">
+    <span>V3 — BULLSEYE</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="4.5" fill="none" stroke="#E8E2D4" stroke-width="1.5" stroke-opacity="0.5"/>
+        <circle cx="14" cy="52" r="1.5" fill="#E8E2D4" fill-opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- V4: Muted rust (color echo) -->
+  <div class="test">
+    <span>V4 — MUTED RUST</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="3.5" fill="#C4522A" fill-opacity="0.35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- V5: Open ring, same size as destination -->
+  <div class="test">
+    <span>V5 — LARGE RING</span>
+    <div class="box">
+      <svg viewBox="0 0 64 64" width="160" height="160">
+        <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.08"/>
+        <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        <circle cx="14" cy="52" r="4.5" fill="none" stroke="#E8E2D4" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

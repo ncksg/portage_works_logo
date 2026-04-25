@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portage Works — Logo Workshop</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #111;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      gap: 3rem;
+      padding: 3rem 2rem;
+    }
+    h1 {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555;
+    }
+    .row {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .variant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #666;
+    }
+    .sublabel {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: #444;
+      max-width: 260px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .card {
+      padding: 3rem 4rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card img {
+      max-width: 80vw;
+      height: auto;
+    }
+    .bg-charcoal { background: #2E2E2A; }
+    .bg-light    { background: #F5EDD8; }
+    .divider {
+      width: 80%;
+      max-width: 800px;
+      height: 1px;
+      background: #222;
+    }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portage Works — Logo Workshop</h1>
+
+  <!-- PALETTE SECTION -->
+  <span class="section-label">Color Palettes</span>
+
+  <div class="row">
+    <div class="variant">
+      <span class="label">A — Charcoal + Rust</span>
+      <div class="card bg-charcoal">
+        <img src="logo_charcoal_rust.svg" alt="Charcoal + Rust logo">
+      </div>
+    </div>
+    <div class="variant">
+      <span class="label">B — Cream + Tobacco</span>
+      <div class="card bg-light">
+        <img src="logo_light_rust.svg" alt="Light + Rust logo">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="variant">
+      <span class="label">C — Deep Forest + Amber</span>
+      <div class="card" style="background:#1E2E1C;">
+        <img src="logo_forest_amber.svg" alt="Deep Forest + Amber logo">
+      </div>
+    </div>
+    <div class="variant">
+      <span class="label">D — River Stone + Copper</span>
+      <div class="card" style="background:#2A2F36;">
+        <img src="logo_slate_copper.svg" alt="River Stone + Copper logo">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

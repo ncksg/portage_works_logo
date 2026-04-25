@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water / Land / Portage Exploration</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=DM+Serif+Display&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 2.5rem; font-family: monospace; color: #666; }
+    h1 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .section { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
+    .row { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+    .test { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .test .label { font-size: 10px; letter-spacing: 0.12em; color: #666; }
+    .test .sublabel { font-size: 9px; color: #444; max-width: 200px; text-align: center; line-height: 1.4; }
+    .box { width: 200px; height: 200px; background: #2E2E2A; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .divider { width: 60%; max-width: 600px; height: 1px; background: #222; }
+    .logo-box { padding: 3rem 4rem; background: #2E2E2A; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1>Water / Land / Portage — Mark Exploration</h1>
+
+  <!-- MARK ONLY COMPARISON -->
+  <span class="section">Mark only — Original vs Portage concept</span>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">ORIGINAL</span>
+      <span class="sublabel">Abstract rails + diagonal</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- P1: Balanced water-land, dots clearly on water -->
+    <div class="test">
+      <span class="label">P1 — BALANCED</span>
+      <span class="sublabel">Equal water bands, clear land gap, dots centered on streams</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <!-- Top stream -->
+          <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Bottom stream -->
+          <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Portage path across land -->
+          <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Origin: centered on bottom stream -->
+          <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <!-- Destination: centered on top stream -->
+          <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- P2: Wider water bands for emphasis -->
+    <div class="test">
+      <span class="label">P2 — WIDER WATER</span>
+      <span class="sublabel">Thicker streams, dots clearly embedded in water</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <!-- Top stream — wider -->
+          <rect x="0" y="6" width="64" height="10" rx="5" fill="#E8E2D4" fill-opacity="0.12"/>
+          <!-- Bottom stream — wider -->
+          <rect x="0" y="48" width="64" height="10" rx="5" fill="#E8E2D4" fill-opacity="0.12"/>
+          <!-- Portage path -->
+          <line x1="16" y1="53" x2="48" y2="11" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Origin -->
+          <circle cx="16" cy="53" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <!-- Destination -->
+          <circle cx="48" cy="11" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- P3: Subtle dashed portage path (like a trail on a map) -->
+    <div class="test">
+      <span class="label">P3 — TRAIL PATH</span>
+      <span class="sublabel">Dashed portage line, like a trail on a topo map</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <!-- Top stream -->
+          <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Bottom stream -->
+          <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Dashed portage path -->
+          <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+          <!-- Origin -->
+          <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <!-- Destination -->
+          <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- P4: Portage path only between the streams (clipped to land) -->
+    <div class="test">
+      <span class="label">P4 — LAND ONLY PATH</span>
+      <span class="sublabel">Traversal line only visible on land, dots float on water</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <defs>
+            <clipPath id="land">
+              <rect x="0" y="15" width="64" height="34"/>
+            </clipPath>
+          </defs>
+          <!-- Top stream -->
+          <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Bottom stream -->
+          <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <!-- Portage path — clipped to land area only -->
+          <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round" clip-path="url(#land)"/>
+          <!-- Origin on bottom stream -->
+          <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <!-- Destination on top stream -->
+          <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FULL LOCKUP COMPARISON -->
+  <span class="section">Full lockup — Original vs best portage candidate</span>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">ORIGINAL — FULL</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 4) scale(0.75)">
+            <rect x="0" y="22" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="36" width="64" height="6" rx="3" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+            <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">P1 BALANCED — FULL</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">P2 WIDER WATER — FULL</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="6" width="64" height="10" rx="5" fill="#E8E2D4" fill-opacity="0.12"/>
+            <rect x="0" y="48" width="64" height="10" rx="5" fill="#E8E2D4" fill-opacity="0.12"/>
+            <line x1="16" y1="53" x2="48" y2="11" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="53" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="48" cy="11" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">P3 TRAIL PATH — FULL</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+            <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

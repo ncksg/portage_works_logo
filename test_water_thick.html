@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water / Land / Portage — Thicker Streams</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=DM+Serif+Display&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 2.5rem; font-family: monospace; color: #666; }
+    h1 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .section { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
+    .row { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+    .test { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .test .label { font-size: 10px; letter-spacing: 0.12em; color: #666; }
+    .test .sublabel { font-size: 9px; color: #444; max-width: 220px; text-align: center; line-height: 1.4; }
+    .box { width: 200px; height: 200px; background: #2E2E2A; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .divider { width: 60%; max-width: 600px; height: 1px; background: #222; }
+    .logo-box { padding: 3rem 4rem; background: #2E2E2A; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1>Thicker Streams / Closer Together — Mark Exploration</h1>
+
+  <span class="section">Previous best (P1) vs thicker/closer variations</span>
+
+  <div class="row">
+    <!-- P1 reference from previous page -->
+    <div class="test">
+      <span class="label">P1 — REFERENCE</span>
+      <span class="sublabel">Original balanced: 7px streams, 34px land gap</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="8" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="49" width="64" height="7" rx="3.5" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="16" y1="52.5" x2="48" y2="11.5" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="16" cy="52.5" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="48" cy="11.5" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- W1: 12px streams, 20px land gap -->
+    <div class="test">
+      <span class="label">W1 — THICK + CLOSE</span>
+      <span class="sublabel">12px streams, 20px land gap, shallower angle</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="6" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="46" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- W2: 14px streams, 16px land gap -->
+    <div class="test">
+      <span class="label">W2 — THICKER + CLOSER</span>
+      <span class="sublabel">14px streams, 16px land gap, shallow angle</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="5" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="45" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="12" y1="52" x2="52" y2="12" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="12" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="52" cy="12" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- W3: 14px streams, 12px land gap — very close -->
+    <div class="test">
+      <span class="label">W3 — VERY CLOSE</span>
+      <span class="sublabel">14px streams, 12px land gap, shallowest angle</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="7" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="43" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="10" y1="50" x2="54" y2="14" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="10" cy="50" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="54" cy="14" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Dashed trail versions of each -->
+  <span class="section">Same variations with dashed trail path (P3 style)</span>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">W1 — DASHED</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="6" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="46" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+          <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="test">
+      <span class="label">W2 — DASHED</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="5" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="45" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="12" y1="52" x2="52" y2="12" stroke="#E8E2D4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+          <circle cx="12" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="52" cy="12" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="test">
+      <span class="label">W3 — DASHED</span>
+      <div class="box">
+        <svg viewBox="0 0 64 64" width="150" height="150">
+          <rect x="0" y="7" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <rect x="0" y="43" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+          <line x1="10" y1="50" x2="54" y2="14" stroke="#E8E2D4" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+          <circle cx="10" cy="50" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+          <circle cx="54" cy="14" r="4.5" fill="#C4522A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Full lockups of best candidates -->
+  <span class="section">Full lockups</span>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">W1 — FULL LOCKUP</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="6" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="46" width="64" height="12" rx="6" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="14" y1="52" x2="50" y2="12" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="50" cy="12" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">W2 — FULL LOCKUP</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="5" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="45" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="12" y1="52" x2="52" y2="12" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="12" cy="52" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="52" cy="12" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="test">
+      <span class="label">W3 — FULL LOCKUP</span>
+      <div class="logo-box">
+        <svg viewBox="0 0 260 56" width="260" height="56">
+          <g transform="translate(0, 0) scale(0.75)">
+            <rect x="0" y="7" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+            <rect x="0" y="43" width="64" height="14" rx="7" fill="#E8E2D4" fill-opacity="0.14"/>
+            <line x1="10" y1="50" x2="54" y2="14" stroke="#E8E2D4" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="10" cy="50" r="4" fill="none" stroke="#E8E2D4" stroke-width="1.5"/>
+            <circle cx="54" cy="14" r="4.5" fill="#C4522A"/>
+          </g>
+          <line x1="68" y1="5" x2="68" y2="51" stroke="#464640" stroke-width="1"/>
+          <text x="88" y="37" font-family="'DM Serif Display', serif" font-size="38" fill="#E8E2D4">Portage</text>
+          <text x="90" y="52" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="4.62" fill="#706A60">WORKS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
