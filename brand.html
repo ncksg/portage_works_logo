@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portage Works — Brand Reference</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Theme tokens ── */
+    :root {
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg:          #363630;
+      --surface:     #242420;
+      --text:        #E8E2D4;
+      --secondary:   #908A7E;
+      --subtle:      #484742;
+      --divider:     #7A7060;
+      --accent:      #C07838;
+      --logo-file:   url('logo_dark_charcoal.svg');
+      --card-border: rgba(255,255,255,0.06);
+      --tag-bg:      #484742;
+      --tag-text:    #E8E2D4;
+      --dont-bg:     #242420;
+      --x-color:     #C07838;
+    }
+
+    [data-theme="light"] {
+      --bg:          #F5EDD8;
+      --surface:     #EDE5CF;
+      --text:        #3E2C1E;
+      --secondary:   #8B7560;
+      --subtle:      #E0D7C3;
+      --divider:     #C4A882;
+      --accent:      #C07838;
+      --logo-file:   url('logo_light_cream.svg');
+      --card-border: rgba(0,0,0,0.08);
+      --tag-bg:      #E0D7C3;
+      --tag-text:    #3E2C1E;
+      --dont-bg:     #EDE5CF;
+      --x-color:     #C07838;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    section { margin-bottom: 5rem; }
+
+    /* ── Toggle ── */
+    .toggle-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--divider);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .toggle-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      transition: color var(--transition);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-label.active {
+      color: var(--accent);
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      cursor: pointer;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-track {
+      position: absolute;
+      inset: 0;
+      background: var(--subtle);
+      border-radius: 13px;
+      transition: background var(--transition);
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+
+    .toggle-switch input:checked ~ .toggle-thumb {
+      transform: translateX(22px);
+    }
+
+    /* ── Section headers ── */
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      transition: color var(--transition);
+    }
+
+    .subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 3rem;
+      transition: color var(--transition);
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--divider);
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      transition: color var(--transition);
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      max-width: 640px;
+      transition: color var(--transition);
+    }
+
+    /* ── Logo display ── */
+    .logo-card {
+      padding: 3rem 4rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--subtle);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .logo-card img { width: 260px; height: auto; }
+
+    [data-theme="dark"] .logo-light { display: none; }
+    [data-theme="light"] .logo-dark { display: none; }
+
+    /* ── Clear space ── */
+    .clearspace-demo {
+      display: inline-block;
+      position: relative;
+      padding: 2.5rem;
+      border: 1px dashed var(--subtle);
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      transition: border-color var(--transition);
+    }
+
+    .clearspace-demo img { width: 200px; display: block; }
+
+    .bbox-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .bbox-wrap img { display: block; }
+
+    .bbox-outline {
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--accent);
+      pointer-events: none;
+    }
+
+    .bbox-label {
+      position: absolute;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.55rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .bbox-label.top-left { top: -1.2em; left: 0; }
+    .bbox-label.top-right { top: -1.2em; right: 0; }
+    .bbox-label.bottom-right { bottom: -1.4em; right: 0; }
+
+    .clearspace-marker {
+      position: absolute;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--accent);
+    }
+
+    .clearspace-marker.top { top: 0.6rem; left: 50%; transform: translateX(-50%); }
+    .clearspace-marker.bottom { bottom: 0.6rem; left: 50%; transform: translateX(-50%); }
+    .clearspace-marker.left { left: 0.5rem; top: 50%; transform: translateY(-50%); }
+    .clearspace-marker.right { right: 0.5rem; top: 50%; transform: translateY(-50%); }
+
+    /* ── Min size ── */
+    .minsize-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .minsize-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .minsize-item span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--secondary);
+      transition: color var(--transition);
+    }
+
+    /* ── Don'ts ── */
+    .donts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .dont-card {
+      background: var(--dont-bg);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: background var(--transition);
+    }
+
+    .dont-card .x-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--x-color);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition);
+    }
+
+    .dont-card .dont-visual {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .dont-card p {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      margin: 0;
+      transition: color var(--transition);
+    }
+
+    .dont-stretched img { width: 200px; height: 32px; }
+
+    /* ── Color swatches ── */
+    .palette-section { margin-bottom: 3rem; }
+
+    .swatch-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .swatch { width: 120px; }
+
+    .swatch-color {
+      width: 120px;
+      height: 72px;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--card-border);
+      transition: border-color var(--transition);
+    }
+
+    .swatch-name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color var(--transition);
+    }
+
+    .swatch-hex {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--secondary);
+      transition: color var(--transition);
+    }
+
+    .swatch-role {
+      font-size: 0.65rem;
+      color: var(--secondary);
+      margin-top: 0.15rem;
+      transition: color var(--transition);
+    }
+
+    /* ── Accent featured ── */
+    .accent-feature {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--surface);
+      border-radius: 0.75rem;
+      transition: background var(--transition);
+    }
+
+    .accent-big-swatch {
+      width: 100px;
+      height: 100px;
+      border-radius: 0.75rem;
+      background: #C07838;
+      flex-shrink: 0;
+    }
+
+    .accent-info h3 { margin-bottom: 0.25rem; }
+
+    .accent-info .hex {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      transition: color var(--transition);
+    }
+
+    .accent-info p {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    /* ── Typography specimens ── */
+    .type-specimen {
+      margin-bottom: 2.5rem;
+      padding: 2rem;
+      background: var(--surface);
+      border-radius: 0.75rem;
+      transition: background var(--transition);
+    }
+
+    .type-specimen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--divider);
+      transition: border-color var(--transition);
+    }
+
+    .type-specimen-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .type-specimen-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--secondary);
+      transition: color var(--transition);
+    }
+
+    .specimen-serif { font-family: 'DM Serif Display', serif; font-weight: 400; }
+    .specimen-sans  { font-family: 'IBM Plex Sans', sans-serif; }
+    .specimen-mono  { font-family: 'IBM Plex Mono', monospace; }
+
+    .type-sample { margin-bottom: 1rem; }
+
+    .type-sample-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--secondary);
+      margin-bottom: 0.25rem;
+      transition: color var(--transition);
+    }
+
+    .type-sample .text-primary { color: var(--text); transition: color var(--transition); }
+    .type-sample .text-secondary { color: var(--secondary); transition: color var(--transition); }
+
+    .type-usage {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--secondary);
+      margin-top: 1rem;
+      transition: color var(--transition);
+    }
+
+    .type-usage dt {
+      color: var(--text);
+      float: left;
+      clear: left;
+      margin-right: 0.5rem;
+      transition: color var(--transition);
+    }
+
+    .type-usage dd { margin-bottom: 0.35rem; }
+
+    /* ── Context mapping ── */
+    .context-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .context-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--divider);
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .context-table td {
+      padding: 0.75rem 1rem;
+      color: var(--secondary);
+      border-bottom: 1px solid var(--subtle);
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .context-table td:first-child {
+      color: var(--text);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .tag-dark { background: #2E2E2A; color: #E8E2D4; }
+    .tag-light { background: #F5EDD8; color: #3E2C1E; border: 1px solid #E0D7C3; }
+
+    /* ── Current theme indicator ── */
+    .theme-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      transition: color var(--transition);
+    }
+
+    .theme-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .donts-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      .accent-feature { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Toggle bar ── -->
+  <div class="toggle-bar">
+    <span class="toggle-label active" id="label-dark">Dark — Charcoal</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="theme-toggle">
+      <div class="toggle-track"></div>
+      <div class="toggle-thumb"></div>
+    </label>
+    <span class="toggle-label" id="label-light">Light — Cream</span>
+  </div>
+
+  <div class="container">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- HEADER -->
+    <!-- ════════════════════════════════════════ -->
+    <section>
+      <h1>Portage Works</h1>
+      <div class="subtitle">Brand Reference — v1.0</div>
+      <p>A lightweight visual reference for Portage Works brand identity. Use the toggle above to switch between dark and light palette contexts. Each view shows the colors, logo, and typography as they appear in that palette.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LOGO -->
+    <!-- ════════════════════════════════════════ -->
+    <section>
+      <h2>Logo</h2>
+
+      <h3>Primary Lockup</h3>
+      <p>The logo consists of the mark (rails, traversal line, origin ring, and accent dot), a vertical divider, and the wordmark. Always use the full lockup in primary placements.</p>
+
+      <div class="logo-card">
+        <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Logo — Dark Charcoal">
+        <img class="logo-light" src="logo_light_cream.svg" alt="Logo — Light Cream">
+      </div>
+
+      <br>
+
+      <h3>Mark Only</h3>
+      <p>The mark may be used standalone without the divider and wordmark — for favicons, app icons, social media avatars, and other contexts where the full lockup won't fit or isn't needed.</p>
+
+      <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+          <div class="logo-card" style="padding: 2rem; width: 120px; height: 120px;">
+            <img class="logo-dark" src="mark_dark_charcoal.svg" alt="Mark — Dark" style="width: 60px;">
+            <img class="logo-light" src="mark_light_cream.svg" alt="Mark — Light" style="width: 60px;">
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--secondary);">60 × 60</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+          <div class="logo-card" style="padding: 1rem; width: 56px; height: 56px;">
+            <img class="logo-dark" src="mark_dark_charcoal.svg" alt="Mark — Dark small" style="width: 32px;">
+            <img class="logo-light" src="mark_light_cream.svg" alt="Mark — Light small" style="width: 32px;">
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--secondary);">32 × 32</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+          <div class="logo-card" style="padding: 0.5rem; width: 32px; height: 32px;">
+            <img class="logo-dark" src="mark_dark_charcoal.svg" alt="Mark — Dark tiny" style="width: 16px;">
+            <img class="logo-light" src="mark_light_cream.svg" alt="Mark — Light tiny" style="width: 16px;">
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--secondary);">16 × 16</span>
+        </div>
+      </div>
+
+      <h3>Clear Space</h3>
+      <p>Maintain minimum clear space around the logo equal to the cap-height of "Portage" in the wordmark. This scales proportionally with the logo at any size. No other elements should intrude into this zone.</p>
+
+      <div class="clearspace-demo">
+        <span class="clearspace-marker top">↕ 1×</span>
+        <span class="clearspace-marker bottom">↕ 1×</span>
+        <span class="clearspace-marker left">↔ 1×</span>
+        <span class="clearspace-marker right">↔ 1×</span>
+        <div class="bbox-wrap logo-dark">
+          <img src="logo_dark_charcoal.svg" alt="Clear space demo" style="width: 200px;">
+          <div class="bbox-outline"></div>
+          <span class="bbox-label top-left">0, 0</span>
+          <span class="bbox-label top-right">260, 0</span>
+          <span class="bbox-label bottom-right">260, 56</span>
+        </div>
+        <div class="bbox-wrap logo-light">
+          <img src="logo_light_cream.svg" alt="Clear space demo" style="width: 200px;">
+          <div class="bbox-outline"></div>
+          <span class="bbox-label top-left">0, 0</span>
+          <span class="bbox-label top-right">260, 0</span>
+          <span class="bbox-label bottom-right">260, 56</span>
+        </div>
+      </div>
+      <p style="font-size: 0.875rem; color: var(--secondary);">1× = cap-height of "Portage" wordmark</p>
+
+      <h3>Minimum Size</h3>
+      <p>The full lockup should not be rendered smaller than 160px wide on screen or 40mm in print.</p>
+
+      <div class="minsize-row">
+        <div class="minsize-item">
+          <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Full size" style="width: 260px;">
+          <img class="logo-light" src="logo_light_cream.svg" alt="Full size" style="width: 260px;">
+          <span>260px — default</span>
+        </div>
+        <div class="minsize-item">
+          <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Minimum size" style="width: 160px;">
+          <img class="logo-light" src="logo_light_cream.svg" alt="Minimum size" style="width: 160px;">
+          <span>160px — minimum</span>
+        </div>
+      </div>
+
+      <h3>Don'ts</h3>
+      <div class="donts-grid">
+        <div class="dont-card">
+          <div class="x-label">✕ Don't stretch</div>
+          <div class="dont-visual">
+            <div class="dont-stretched">
+              <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Stretched">
+              <img class="logo-light" src="logo_light_cream.svg" alt="Stretched">
+            </div>
+          </div>
+          <p>Never distort proportions</p>
+        </div>
+        <div class="dont-card">
+          <div class="x-label">✕ Don't recolor</div>
+          <div class="dont-visual">
+            <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Recolored" style="width: 140px; filter: hue-rotate(180deg);">
+            <img class="logo-light" src="logo_light_cream.svg" alt="Recolored" style="width: 140px; filter: hue-rotate(180deg);">
+          </div>
+          <p>Only use approved palette colors</p>
+        </div>
+        <div class="dont-card">
+          <div class="x-label">✕ Don't reduce contrast</div>
+          <div class="dont-visual">
+            <img class="logo-dark" src="logo_dark_charcoal.svg" alt="Low contrast" style="width: 140px; opacity: 0.2;">
+            <img class="logo-light" src="logo_light_cream.svg" alt="Low contrast" style="width: 140px; opacity: 0.2;">
+          </div>
+          <p>Logo must remain clearly legible</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- COLOR -->
+    <!-- ════════════════════════════════════════ -->
+    <section>
+      <h2>Color</h2>
+
+      <h3>Primary Accent</h3>
+      <div class="accent-feature">
+        <div class="accent-big-swatch"></div>
+        <div class="accent-info">
+          <h3>Rust</h3>
+          <div class="hex">#C07838</div>
+          <p>The anchor color across all contexts. Used for the accent dot in the logo mark, interactive elements, highlights, and calls to action. Consistent across both palettes.</p>
+        </div>
+      </div>
+
+      <div class="theme-note">Showing <strong id="palette-name">Dark — Charcoal</strong> palette</div>
+
+      <!-- Dark palette swatches -->
+      <div class="palette-section" id="swatches-dark">
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #363630;"></div>
+            <div class="swatch-name">Background</div>
+            <div class="swatch-hex">#363630</div>
+            <div class="swatch-role">Page / slide background</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #242420;"></div>
+            <div class="swatch-name">Surface</div>
+            <div class="swatch-hex">#242420</div>
+            <div class="swatch-role">Cards, inset panels</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #E8E2D4;"></div>
+            <div class="swatch-name">Text Primary</div>
+            <div class="swatch-hex">#E8E2D4</div>
+            <div class="swatch-role">Headings, emphasis, important content</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #908A7E;"></div>
+            <div class="swatch-name">Text Secondary</div>
+            <div class="swatch-hex">#908A7E</div>
+            <div class="swatch-role">Body copy, captions, metadata, labels</div>
+          </div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #C07838;"></div>
+            <div class="swatch-name">Accent</div>
+            <div class="swatch-hex">#C07838</div>
+            <div class="swatch-role">Highlights, links, CTAs</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #484742;"></div>
+            <div class="swatch-name">Subtle</div>
+            <div class="swatch-hex">#484742</div>
+            <div class="swatch-role">Borders, cards, rails</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #7A7060;"></div>
+            <div class="swatch-name">Divider</div>
+            <div class="swatch-hex">#7A7060</div>
+            <div class="swatch-role">Separators, rules</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light palette swatches -->
+      <div class="palette-section" id="swatches-light" style="display: none;">
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #F5EDD8; border-color: rgba(0,0,0,0.1);"></div>
+            <div class="swatch-name">Background</div>
+            <div class="swatch-hex">#F5EDD8</div>
+            <div class="swatch-role">Page background</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #EDE5CF; border-color: rgba(0,0,0,0.1);"></div>
+            <div class="swatch-name">Surface</div>
+            <div class="swatch-hex">#EDE5CF</div>
+            <div class="swatch-role">Cards, inset panels</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #3E2C1E;"></div>
+            <div class="swatch-name">Text Primary</div>
+            <div class="swatch-hex">#3E2C1E</div>
+            <div class="swatch-role">Headings, emphasis, important content</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #8B7560;"></div>
+            <div class="swatch-name">Text Secondary</div>
+            <div class="swatch-hex">#8B7560</div>
+            <div class="swatch-role">Body copy, captions, metadata, labels</div>
+          </div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #C07838;"></div>
+            <div class="swatch-name">Accent</div>
+            <div class="swatch-hex">#C07838</div>
+            <div class="swatch-role">Highlights, links, CTAs</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #E0D7C3; border-color: rgba(0,0,0,0.1);"></div>
+            <div class="swatch-name">Subtle</div>
+            <div class="swatch-hex">#E0D7C3</div>
+            <div class="swatch-role">Borders, cards, rails</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #C4A882;"></div>
+            <div class="swatch-name">Divider</div>
+            <div class="swatch-hex">#C4A882</div>
+            <div class="swatch-role">Separators, rules</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- TYPOGRAPHY -->
+    <!-- ════════════════════════════════════════ -->
+    <section>
+      <h2>Typography</h2>
+
+      <div class="type-specimen">
+        <div class="type-specimen-header">
+          <span class="type-specimen-name">DM Serif Display</span>
+          <span class="type-specimen-meta">Google Fonts · Weight 400</span>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Hero / Title — 40px</div>
+          <div class="specimen-serif text-primary" style="font-size: 2.5rem;">Portage Works</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Section Heading — 28px</div>
+          <div class="specimen-serif text-primary" style="font-size: 1.75rem;">Education-First Advisory</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Slide Heading — 20px</div>
+          <div class="specimen-serif text-primary" style="font-size: 1.25rem;">Building trust through understanding</div>
+        </div>
+        <dl class="type-usage">
+          <dt>Use for:</dt>
+          <dd>Brand name, hero text, major headings, slide titles</dd>
+          <dt>Avoid:</dt>
+          <dd>Body copy, small text, UI elements</dd>
+        </dl>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-specimen-header">
+          <span class="type-specimen-name">IBM Plex Sans</span>
+          <span class="type-specimen-meta">Google Fonts · Weights 300–700</span>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Subheading — 18px · Semibold (600)</div>
+          <div class="specimen-sans text-primary" style="font-size: 1.125rem; font-weight: 600;">Understanding the AI landscape</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Body — 16px · Regular (400)</div>
+          <div class="specimen-sans text-secondary" style="font-size: 1rem; max-width: 580px;">Most AI advisory starts with the technology. We start with your team — their questions, their concerns, their existing expertise. We believe that comprehension must precede implementation.</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Small — 14px · Regular (400)</div>
+          <div class="specimen-sans text-secondary" style="font-size: 0.875rem;">Supporting detail, captions, and interface text.</div>
+        </div>
+        <dl class="type-usage">
+          <dt>Use for:</dt>
+          <dd>Body copy, subheadings, slide content, UI text, proposals</dd>
+          <dt>Weights:</dt>
+          <dd>300 (light) for large decorative text, 400 (regular) for body, 500–600 for emphasis, 700 for strong headings</dd>
+        </dl>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-specimen-header">
+          <span class="type-specimen-name">IBM Plex Mono</span>
+          <span class="type-specimen-meta">Google Fonts · Weights 400–600</span>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Label — 11px · Regular · Tracked</div>
+          <div class="specimen-mono text-secondary" style="font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;">WORKS · EDUCATION · DISCOVERY · IMPLEMENTATION</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Technical — 14px · Regular</div>
+          <div class="specimen-mono text-secondary" style="font-size: 0.875rem;">Stage 1: $15,000 – $30,000 fixed fee</div>
+        </div>
+        <dl class="type-usage">
+          <dt>Use for:</dt>
+          <dd>Labels, metadata, technical callouts, code, the "WORKS" wordmark, pricing, data</dd>
+          <dt>Avoid:</dt>
+          <dd>Long-form body copy</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- CONTEXT MAPPING -->
+    <!-- ════════════════════════════════════════ -->
+    <section>
+      <h2>Palette × Context</h2>
+      <p>Which palette to use where.</p>
+
+      <table class="context-table">
+        <thead>
+          <tr>
+            <th>Context</th>
+            <th>Palette</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Presentation slides</td>
+            <td><span class="tag tag-dark">Dark — Charcoal</span></td>
+            <td>Projects well; reduces eye strain in dimmed rooms</td>
+          </tr>
+          <tr>
+            <td>Website</td>
+            <td><span class="tag tag-dark">Dark — Charcoal</span></td>
+            <td>Primary site palette; consider light for specific sections</td>
+          </tr>
+          <tr>
+            <td>Proposals &amp; documents</td>
+            <td><span class="tag tag-light">Light — Cream</span></td>
+            <td>Better print readability; conserves ink</td>
+          </tr>
+          <tr>
+            <td>Business cards</td>
+            <td><span class="tag tag-dark">Dark — Charcoal</span></td>
+            <td>Dark stock + light text + rust accent is distinctive</td>
+          </tr>
+          <tr>
+            <td>Email signatures</td>
+            <td><span class="tag tag-light">Light — Cream</span></td>
+            <td>Most email clients render on light backgrounds</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const labelDark = document.getElementById('label-dark');
+    const labelLight = document.getElementById('label-light');
+    const paletteName = document.getElementById('palette-name');
+    const swatchesDark = document.getElementById('swatches-dark');
+    const swatchesLight = document.getElementById('swatches-light');
+
+    toggle.addEventListener('change', () => {
+      const isLight = toggle.checked;
+      html.setAttribute('data-theme', isLight ? 'light' : 'dark');
+      labelDark.classList.toggle('active', !isLight);
+      labelLight.classList.toggle('active', isLight);
+      paletteName.textContent = isLight ? 'Light — Cream' : 'Dark — Charcoal';
+      swatchesDark.style.display = isLight ? 'none' : 'block';
+      swatchesLight.style.display = isLight ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
